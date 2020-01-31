@@ -6,7 +6,7 @@
 
 ---
 
-<p align="center"> Projeto desenvolvido no bootcamp GoStack da [rocketseat](https://github.com/RocketSeat)
+<p align="center"> Projeto desenvolvido no bootcamp GoStack da <a href="https://github.com/RocketSeat">Rocketseat</a>
     <br> 
 </p>
 
