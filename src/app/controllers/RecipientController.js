@@ -20,7 +20,8 @@ class RecipientController {
     const recipient = await Recipient.create(req.body);
 
     return res.json(recipient);
-  },
+  }
+
   async update(req, res) {
     const recipient = await Recipient.findByPk(req.userId);
 
@@ -32,17 +33,19 @@ class RecipientController {
       state,
       city,
       cep_code
-    } = recipient.update(req.body);
+    } = await recipient.update(req.body);
 
     return res.json({
-      id: req.userId,
-      name,
-      street,
-      house_number,
-      complement,
-      state,
-      city,
-      cep_code,
+      recipient: {
+        id: req.userId,
+        name,
+        street,
+        house_number,
+        complement,
+        state,
+        city,
+        cep_code
+      }
     });
   }
 }
