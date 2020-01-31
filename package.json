@@ -5,5 +5,7 @@
   "repository": "https://github.com/viniciusrodrigues1a/fastfeet-api",
   "author": "viniciusrodrigues1a <viniciusrodrigues.aro@gmail.com>",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
