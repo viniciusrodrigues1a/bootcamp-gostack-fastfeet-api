@@ -4,8 +4,6 @@
 
 <h3 align="center">FastFeet</h3>
 
----
-
 <p align="center"> Projeto desenvolvido no bootcamp GoStack da <a href="https://github.com/RocketSeat">Rocketseat</a>
     <br> 
 </p>
