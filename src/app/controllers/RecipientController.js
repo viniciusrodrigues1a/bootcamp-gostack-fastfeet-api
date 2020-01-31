@@ -2,6 +2,27 @@ import * as Yup from 'yup';
 import Recipient from '../models/Recipient';
 
 class RecipientController {
+  async index(req, res) {
+    const recipients = await Recipient.findAll();
+
+    if (recipients.length === 0) {
+      return res.status(400).json({ error: 'There are no recipients' });
+    }
+
+    return res.json(recipients);
+  }
+
+  async show(req, res) {
+    const { id } = req.params;
+    const recipient = await Recipient.findByPk(id);
+
+    if (!recipient) {
+      return res.status(400).json({ error: 'Recipient ID invalid' });
+    }
+
+    return res.json(recipient);
+  }
+
   async store(req, res) {
     const schema = Yup.object({
       name: Yup.string().required(),
