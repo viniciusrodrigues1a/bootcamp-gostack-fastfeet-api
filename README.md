@@ -6,21 +6,13 @@
 
 ---
 
-<p align="center"> Projeto desenvolvido no bootcamp GoStack da ![rocketseat](https://github.com/RocketSeat)
+<p align="center"> Projeto desenvolvido no bootcamp GoStack da [rocketseat](https://github.com/RocketSeat)
     <br> 
 </p>
 
 ## 📝 Índice
 
 - [Sobre](#about)
-- [Getting Started](#getting_started)
-- [Deployment](#deployment)
-- [Usage](#usage)
-- [Built Using](#built_using)
-- [TODO](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
-- [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
 
 ## 🧐 Sobre <a name = "about"></a>
 
