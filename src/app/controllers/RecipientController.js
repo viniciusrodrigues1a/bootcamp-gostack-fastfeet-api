@@ -47,8 +47,6 @@ class RecipientController {
     const { id } = req.params;
     const recipient = await Recipient.findByPk(id);
 
-    console.log(id);
-
     if (!recipient) {
       return res.status(400).json({ error: 'Recipient ID invalid' });
     }
