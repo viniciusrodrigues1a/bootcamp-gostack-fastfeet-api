@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('users', {
+    return queryInterface.createTable('recipients', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -34,6 +34,14 @@ module.exports = {
       cep_code: {
         allowNull: false,
         type: Sequelize.STRING
+      },
+      created_at: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updated_at: {
+        allowNull: false,
+        type: Sequelize.DATE
       }
     });
   },
