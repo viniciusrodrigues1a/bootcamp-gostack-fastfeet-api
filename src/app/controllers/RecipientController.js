@@ -44,7 +44,14 @@ class RecipientController {
   }
 
   async update(req, res) {
-    const recipient = await Recipient.findByPk(req.userId);
+    const { id } = req.params;
+    const recipient = await Recipient.findByPk(id);
+
+    console.log(id);
+
+    if (!recipient) {
+      return res.status(400).json({ error: 'Recipient ID invalid' });
+    }
 
     const {
       name,
@@ -58,7 +65,7 @@ class RecipientController {
 
     return res.json({
       recipient: {
-        id: req.userId,
+        id,
         name,
         street,
         house_number,
@@ -67,6 +74,21 @@ class RecipientController {
         city,
         cep_code
       }
+    });
+  }
+
+  async destroy(req, res) {
+    const { id } = req.params;
+    const recipient = await Recipient.findByPk(id);
+
+    if (!recipient) {
+      return res.status(400).json({ error: 'Recipient ID invalid' });
+    }
+
+    await Recipient.destroy({ where: { id } });
+
+    return res.json({
+      message: `Recipient with id ${id} successfully removed`
     });
   }
 }
