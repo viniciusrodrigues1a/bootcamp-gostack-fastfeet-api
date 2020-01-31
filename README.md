@@ -11,15 +11,17 @@
 ## 📝 Índice
 
 - [Sobre](#about)
+- [Primeiros passos](#getting_started)
+- [Feito com](#built_using)
 
 ## 🧐 Sobre <a name = "about"></a>
 
 App para uma transportadora fictícia, o FastFeet.
 
-## 🏁 Getting Started <a name = "getting_started"></a>
+## 🏁 Primeiros passos <a name = "getting_started"></a>
 
 Estas instruçōes te darão uma cópia funcional do projeto na sua máquina local para desenvolvimento e testes.
-### Prerequisites
+### Pré-requisitos
 
 Instalar as dependências
 
@@ -27,7 +29,7 @@ Instalar as dependências
 yarn install
 ```
 
-### Installing
+### Instalação
 
 Configurar a conexão com o banco de dados em src/config/database.js
 
@@ -59,4 +61,4 @@ yarn dev
 - [Sequelize](https://sequelize.org/) - ORM
 - [Express](https://expressjs.com/) - Server Framework
 - [NodeJS](https://nodejs.org/en/) - Server Environment
-- [JsonWebToken](https://jwt.io/)
+- [JWT](https://jwt.io/)
