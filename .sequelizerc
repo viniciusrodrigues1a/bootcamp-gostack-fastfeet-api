@@ -1,4 +1,4 @@
-const { resolve } = path;
+const { resolve } = 'path';
 
 module.exports = {
   config: resolve(__dirname, 'src', 'config', 'database.js'),
