@@ -61,4 +61,4 @@ yarn dev
 - [Sequelize](https://sequelize.org/) - ORM
 - [Express](https://expressjs.com/) - Server Framework
 - [NodeJS](https://nodejs.org/en/) - Server Environment
-- [JWT](https://jwt.io/)
+- [JWT](https://www.jsonwebtoken.io/)
