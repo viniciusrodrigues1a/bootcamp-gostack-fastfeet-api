@@ -4,7 +4,7 @@ import Deliveryman from '../models/Deliveryman';
 class DeliverymanController {
   async index(req, res) {
     const deliverymen = await Deliveryman.findAll({
-      attributes: ['id', 'name', 'email']
+      attributes: ['id', 'name', 'email', 'avatar_id']
     });
 
     if (deliverymen.length === 0) {
@@ -23,12 +23,13 @@ class DeliverymanController {
       return res.status(404).json({ error: 'Deliveryman not found' });
     }
 
-    const { name, email } = deliveryman;
+    const { name, email, avatar_id } = deliveryman;
 
     return res.json({
       id,
       name,
-      email
+      email,
+      avatar_id
     });
   }
 
@@ -54,12 +55,13 @@ class DeliverymanController {
       return res.status(400).json({ error: 'Email already registered' });
     }
 
-    const { id, name } = await Deliveryman.create(req.body);
+    const { id, name, avatar_id } = await Deliveryman.create(req.body);
 
     return res.json({
       id,
       name,
-      email
+      email,
+      avatar_id
     });
   }
 
