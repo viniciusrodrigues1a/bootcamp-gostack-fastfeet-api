@@ -1,10 +1,18 @@
 import * as Yup from 'yup';
 import Deliveryman from '../models/Deliveryman';
+import File from '../models/File';
 
 class DeliverymanController {
   async index(req, res) {
     const deliverymen = await Deliveryman.findAll({
-      attributes: ['id', 'name', 'email', 'avatar_id']
+      attributes: ['id', 'name', 'email'],
+      include: [
+        {
+          model: File,
+          as: 'avatar',
+          attributes: ['id', 'name', 'path', 'url_path']
+        }
+      ]
     });
 
     if (deliverymen.length === 0) {
@@ -17,20 +25,22 @@ class DeliverymanController {
   async show(req, res) {
     const { id } = req.params;
 
-    const deliveryman = await Deliveryman.findByPk(id);
+    const deliveryman = await Deliveryman.findByPk(id, {
+      attributes: ['id', 'name', 'email'],
+      include: [
+        {
+          model: File,
+          as: 'avatar',
+          attributes: ['id', 'name', 'path', 'url_path']
+        }
+      ]
+    });
 
     if (!deliveryman) {
       return res.status(404).json({ error: 'Deliveryman not found' });
     }
 
-    const { name, email, avatar_id } = deliveryman;
-
-    return res.json({
-      id,
-      name,
-      email,
-      avatar_id
-    });
+    return res.json(deliveryman);
   }
 
   async store(req, res) {
@@ -82,7 +92,16 @@ class DeliverymanController {
 
     const { id } = req.params;
 
-    const deliveryman = await Deliveryman.findByPk(id);
+    const deliveryman = await Deliveryman.findByPk(id, {
+      attributes: ['id', 'name', 'email'],
+      include: [
+        {
+          model: File,
+          as: 'avatar',
+          attributes: ['id', 'name', 'path', 'url_path']
+        }
+      ]
+    });
 
     if (!deliveryman) {
       return res.status(404).json({ error: 'Deliveryman not found' });
@@ -94,14 +113,9 @@ class DeliverymanController {
       return res.status(400).json({ error: 'Email already registered' });
     }
 
-    const { name, avatar_id } = await deliveryman.update(req.body);
+    await deliveryman.update(req.body);
 
-    return res.json({
-      id,
-      name,
-      email,
-      avatar_id
-    });
+    return res.json(deliveryman);
   }
 
   async destroy(req, res) {
