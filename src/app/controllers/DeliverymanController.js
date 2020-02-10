@@ -68,9 +68,12 @@ class DeliverymanController {
   async update(req, res) {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
+      oldEmail: Yup.string().email(),
       email: Yup.string()
         .email()
-        .required()
+        .when('oldEmail', (oldEmail, field) =>
+          oldEmail ? field.required() : field
+        )
     });
 
     if (!(await schema.isValid(req.body))) {
@@ -85,12 +88,19 @@ class DeliverymanController {
       return res.status(404).json({ error: 'Deliveryman not found' });
     }
 
-    const { name, email } = await deliveryman.update(req.body);
+    const { email } = req.body;
+
+    if (email && (await Deliveryman.findOne({ where: { email } }))) {
+      return res.status(400).json({ error: 'Email already registered' });
+    }
+
+    const { name, avatar_id } = await deliveryman.update(req.body);
 
     return res.json({
       id,
       name,
-      email
+      email,
+      avatar_id
     });
   }
 
