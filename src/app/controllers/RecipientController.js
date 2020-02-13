@@ -1,9 +1,22 @@
 import * as Yup from 'yup';
 import Recipient from '../models/Recipient';
 
+const sequelizeModelOptions = {
+  attributes: [
+    'id',
+    'name',
+    'street',
+    'house_number',
+    'complement',
+    'state',
+    'city',
+    'cep_code'
+  ]
+};
+
 class RecipientController {
   async index(req, res) {
-    const recipients = await Recipient.findAll();
+    const recipients = await Recipient.findAll(sequelizeModelOptions);
 
     if (recipients.length === 0) {
       return res.status(400).json({ error: 'There are no recipients' });
@@ -14,7 +27,7 @@ class RecipientController {
 
   async show(req, res) {
     const { id } = req.params;
-    const recipient = await Recipient.findByPk(id);
+    const recipient = await Recipient.findByPk(id, sequelizeModelOptions);
 
     if (!recipient) {
       return res.status(400).json({ error: 'Recipient ID invalid' });
