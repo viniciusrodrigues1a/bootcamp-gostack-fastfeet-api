@@ -2,18 +2,20 @@ import * as Yup from 'yup';
 import Deliveryman from '../models/Deliveryman';
 import File from '../models/File';
 
+const sequelizeModelOptions = {
+  attributes: ['id', 'name', 'email'],
+  include: [
+    {
+      model: File,
+      as: 'avatar',
+      attributes: ['id', 'name', 'path', 'url_path']
+    }
+  ]
+};
+
 class DeliverymanController {
   async index(req, res) {
-    const deliverymen = await Deliveryman.findAll({
-      attributes: ['id', 'name', 'email'],
-      include: [
-        {
-          model: File,
-          as: 'avatar',
-          attributes: ['id', 'name', 'path', 'url_path']
-        }
-      ]
-    });
+    const deliverymen = await Deliveryman.findAll(sequelizeModelOptions);
 
     if (deliverymen.length === 0) {
       return res.status(400).json({ error: 'There are no deliverymen' });
@@ -25,16 +27,7 @@ class DeliverymanController {
   async show(req, res) {
     const { id } = req.params;
 
-    const deliveryman = await Deliveryman.findByPk(id, {
-      attributes: ['id', 'name', 'email'],
-      include: [
-        {
-          model: File,
-          as: 'avatar',
-          attributes: ['id', 'name', 'path', 'url_path']
-        }
-      ]
-    });
+    const deliveryman = await Deliveryman.findByPk(id, sequelizeModelOptions);
 
     if (!deliveryman) {
       return res.status(404).json({ error: 'Deliveryman not found' });
@@ -92,16 +85,7 @@ class DeliverymanController {
 
     const { id } = req.params;
 
-    const deliveryman = await Deliveryman.findByPk(id, {
-      attributes: ['id', 'name', 'email'],
-      include: [
-        {
-          model: File,
-          as: 'avatar',
-          attributes: ['id', 'name', 'path', 'url_path']
-        }
-      ]
-    });
+    const deliveryman = await Deliveryman.findByPk(id, sequelizeModelOptions);
 
     if (!deliveryman) {
       return res.status(404).json({ error: 'Deliveryman not found' });
