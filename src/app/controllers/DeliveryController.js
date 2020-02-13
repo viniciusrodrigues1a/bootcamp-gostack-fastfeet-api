@@ -3,6 +3,7 @@ import Deliveryman from '../models/Deliveryman';
 import Delivery from '../models/Delivery';
 import Recipient from '../models/Recipient';
 import File from '../models/File';
+import Mail from '../../lib/Mail';
 
 const sequelizeModelOptions = {
   attributes: [
@@ -78,7 +79,32 @@ class DeliveryController {
       return res.status(400).json({ error: 'Validation failed' });
     }
 
-    const delivery = await Delivery.create(req.body, sequelizeModelOptions);
+    const delivery = await Delivery.create(req.body);
+
+    const { product, recipient, deliveryman } = await Delivery.findByPk(
+      delivery.id,
+      sequelizeModelOptions
+    );
+
+    await Mail.sendMail({
+      to: `${deliveryman.name} <${deliveryman.email}>`,
+      subject: 'Agendamento cancelado',
+      template: 'deliveryMail',
+      context: {
+        product: {
+          name: product
+        },
+        recipient: {
+          name: recipient.name,
+          street: recipient.street,
+          house_number: recipient.house_number,
+          complement: recipient.complement,
+          state: recipient.state,
+          city: recipient.city,
+          cep_code: recipient.cep_code
+        }
+      }
+    });
 
     return res.json(delivery);
   }
@@ -101,8 +127,6 @@ class DeliveryController {
     if (!delivery) {
       return res.status(404).json({ error: 'Delivery not found' });
     }
-
-    await delivery.update(req.body, sequelizeModelOptions);
 
     return res.json(delivery);
   }
