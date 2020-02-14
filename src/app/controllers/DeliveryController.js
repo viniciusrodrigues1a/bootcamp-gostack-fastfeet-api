@@ -3,7 +3,9 @@ import Deliveryman from '../models/Deliveryman';
 import Delivery from '../models/Delivery';
 import Recipient from '../models/Recipient';
 import File from '../models/File';
-import Mail from '../../lib/Mail';
+
+import DeliveryMail from '../jobs/DeliveryMail';
+import Queue from '../../lib/Queue';
 
 const sequelizeModelOptions = {
   attributes: [
@@ -86,24 +88,10 @@ class DeliveryController {
       sequelizeModelOptions
     );
 
-    await Mail.sendMail({
-      to: `${deliveryman.name} <${deliveryman.email}>`,
-      subject: 'Agendamento cancelado',
-      template: 'deliveryMail',
-      context: {
-        product: {
-          name: product
-        },
-        recipient: {
-          name: recipient.name,
-          street: recipient.street,
-          house_number: recipient.house_number,
-          complement: recipient.complement,
-          state: recipient.state,
-          city: recipient.city,
-          cep_code: recipient.cep_code
-        }
-      }
+    await Queue.add(DeliveryMail.key, {
+      product,
+      recipient,
+      deliveryman
     });
 
     return res.json(delivery);
