@@ -51,7 +51,7 @@ class DeliveryController {
 
     if (deliveries.length === 0) {
       return res.status(400).json({
-        error: 'There are no deliveries for this deliveryman'
+        error: 'There are no deliveries'
       });
     }
 
