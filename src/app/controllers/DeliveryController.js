@@ -116,6 +116,8 @@ class DeliveryController {
       return res.status(404).json({ error: 'Delivery not found' });
     }
 
+    await delivery.update(req.body);
+
     return res.json(delivery);
   }
 
