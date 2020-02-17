@@ -4,7 +4,7 @@ import Delivery from '../models/Delivery';
 import Recipient from '../models/Recipient';
 import File from '../models/File';
 
-import DeliveryMail from '../jobs/DeliveryMail';
+import NewDeliveryMail from '../jobs/NewDeliveryMail';
 import Queue from '../../lib/Queue';
 
 const sequelizeModelOptions = {
@@ -90,7 +90,7 @@ class DeliveryController {
       sequelizeModelOptions
     );
 
-    await Queue.add(DeliveryMail.key, {
+    await Queue.add(NewDeliveryMail.key, {
       product,
       recipient,
       deliveryman
