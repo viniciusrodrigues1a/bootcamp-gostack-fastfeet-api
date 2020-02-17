@@ -1,0 +1,26 @@
+<p style="font-size: 18px; font-weight: bold;">Olá, uma de suas encomendas foram canceladas, veja informações abaixo:</p>
+
+<div style="margin-left: 1em; border-left: 1px solid #999; padding: 0.5em 0 0.5em 1em; opacity: 0.95">
+  {{> productInfo }}
+
+  <hr style="border: 1px dotted #aaa; opacity: 0.7;">
+
+  {{> recipientInfo }}
+</div>
+
+<p><strong>Data do cancelamento:</strong> {{ recipient.canceled_at }}</p>
+
+{{#if deliveryProblems}}
+  <p style="font-size: 16px; font-weight: bold;">Problemas relacionados à esta entrega:</p>
+
+  {{#each deliveryProblems}}
+    <div style="margin-left: 1em; border-left: 1px solid #999; padding: 0.5em 0 0.5em 1em; opacity: 0.95">
+      <strong style="font-size: 14px; color: #aaa;"># {{@index}}</strong> <br />
+      <span style="font-size: 14px"><strong>Descrição:</strong> {{ deliveryProblem.description }}</span>
+    </div>
+
+    <br />
+  {{/each}}
+{{else}}
+  <p style="font-size: 16px; font-weight: bold;">Não há problemas relacionados à esta entrega:</p>
+{{/if}}
