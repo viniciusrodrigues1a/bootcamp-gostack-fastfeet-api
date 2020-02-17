@@ -62,3 +62,5 @@ yarn dev
 - [Express](https://expressjs.com/) - Server Framework
 - [NodeJS](https://nodejs.org/en/) - Server Environment
 - [JsonWebToken](https://www.npmjs.com/package/jsonwebtoken)
+- [Nodemailer](https://nodemailer.com/about/)
+- [Bee-queue](https://github.com/bee-queue/bee-queue)
