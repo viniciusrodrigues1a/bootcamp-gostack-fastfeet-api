@@ -8,7 +8,7 @@
   {{> recipientInfo }}
 </div>
 
-<p><strong>Data do cancelamento:</strong> {{ recipient.canceled_at }}</p>
+<p><strong>Data do cancelamento:</strong> {{ cancelationDate }}</p>
 
 {{#if deliveryProblems}}
   <p style="font-size: 16px; font-weight: bold;">Problemas relacionados à esta entrega:</p>
@@ -22,5 +22,5 @@
     <br />
   {{/each}}
 {{else}}
-  <p style="font-size: 16px; font-weight: bold;">Não há problemas relacionados à esta entrega:</p>
+  <p style="font-size: 16px; font-weight: bold;">Não há problemas relacionados à esta entrega</p>
 {{/if}}
