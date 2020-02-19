@@ -100,3 +100,4 @@ yarn dev
 - [JsonWebToken](https://www.npmjs.com/package/jsonwebtoken)
 - [Nodemailer](https://nodemailer.com/about/)
 - [Bee-queue](https://github.com/bee-queue/bee-queue)
+- [Multer](https://github.com/expressjs/multer)
