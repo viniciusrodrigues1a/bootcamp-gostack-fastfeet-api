@@ -61,33 +61,33 @@ yarn dev
 | ------------- | ---------------------------------------- | ---------- | -------------------------------------------------- |
 | POST          | /sessions                                | JSON       | Cria um token JWT                                  |
 | <br />        |                                          |            |                                                    |
-| GET           | /deliverymen/:id                         | NO-BODY    | Mostra informações de um entregador                |
+| GET           | /deliverymen/:id                         | -          | Mostra informações de um entregador                |
 | PUT           | /deliverymen/:id                         | JSON       | Atualiza informações de um entregador              |
-| DELETE        | /deliverymen/:id                         | NO-BODY    | Deleta um entregador                               |
-| GET           | /deliverymen/:id/deliveries              | NO-BODY    | Mostra as deliveries disponíveis para um entregador|
-| GET           | /deliverymen                             | NO-BODY    | Mostra informações de todos entregadores           |
+| DELETE        | /deliverymen/:id                         | -          | Deleta um entregador                               |
+| GET           | /deliverymen/:id/deliveries              | -          | Mostra as deliveries disponíveis para um entregador|
+| GET           | /deliverymen                             | -          | Mostra informações de todos entregadores           |
 | POST          | /deliverymen                             | JSON       | Cadastra um entregador                             |
 | <br />        |                                          |            |                                                    |
-| GET           | /recipients/:id                          | NO-BODY    | Mostra informações de um destinatário              |
+| GET           | /recipients/:id                          | -          | Mostra informações de um destinatário              |
 | PUT           | /recipients/:id                          | JSON       | Atualiza informações de um destinatário            |
-| DELETE        | /recipients/:id                          | NO-BODY    | Deleta um destinatário                             |
-| GET           | /recipients                              | NO-BODY    | Mostra informações de todos destinatários          |
+| DELETE        | /recipients/:id                          | -          | Deleta um destinatário                             |
+| GET           | /recipients                              | -          | Mostra informações de todos destinatários          |
 | POST          | /recipients                              | JSON       | Cadastra um destinatário                           |
 | <br />        |                                          |            |                                                    |
-| GET           | /deliveries/:id                          | NO-BODY    | Mostra informações de uma entrega                  |
+| GET           | /deliveries/:id                          | -          | Mostra informações de uma entrega                  |
 | PUT           | /deliveries/:id                          | JSON       | Atualiza informações de uma entrega                |
-| DELETE        | /deliveries/:id                          | NO-BODY    | Delete uma entrega                                 |
-| GET           | /deliveries                              | NO-BODY    | Mostra informações de todas entregas               |
+| DELETE        | /deliveries/:id                          | -          | Delete uma entrega                                 |
+| GET           | /deliveries                              | -          | Mostra informações de todas entregas               |
 | POST          | /deliveries                              | JSON       | Cadastra uma entrega                               |
 | PUT           | /deliveries/start-delivery/:id           | JSON       | Faz a retirada de uma entrega                      |
 | PUT           | /deliveries/finish-delivery/:id          | JSON       | Finaliza uma entrega                               |
 | <br />        |                                          |            |                                                    |
-| GET           | /deliveries/problems/:id                 | NO-BODY    | Mostra informações de um problema da entrega       |
+| GET           | /deliveries/problems/:id                 | -          | Mostra informações de um problema da entrega       |
 | PUT           | /deliveries/problems/:id                 | JSON       | Atualiza informações de um problema da entrega     |
-| DELETE        | /deliveries/problems/:id                 | NO-BODY    | Deleta um problema de uma entrega                  |
-| GET           | /deliveries/problems/                    | NO-BODY    | Mostra todas os problemas de uma entrega           |
+| DELETE        | /deliveries/problems/:id                 | -          | Deleta um problema de uma entrega                  |
+| GET           | /deliveries/problems/                    | -          | Mostra todas os problemas de uma entrega           |
 | POST          | /deliveries/problems/                    | JSON       | Cadastra um problema na entrega                    |
-| POST          | /deliveries/problems/:id/cancel-delivery | NO-BODY    | Cancela uma entrega                                |
+| POST          | /deliveries/problems/:id/cancel-delivery | -          | Cancela uma entrega                                |
 | <br />        |                                          |            |                                                    |
 | POST          | /files                                   | MULTI-PART | Faz upload de um arquivo                           |
 
