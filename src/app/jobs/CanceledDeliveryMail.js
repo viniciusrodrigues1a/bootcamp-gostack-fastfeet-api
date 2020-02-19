@@ -6,7 +6,13 @@ class CanceledDeliveryMail {
   }
 
   async handle({ data }) {
-    const { product, deliveryman, recipient, deliveryProblems } = data;
+    const {
+      product,
+      deliveryman,
+      recipient,
+      deliveryProblems,
+      cancelationDate
+    } = data;
     await Mail.sendMail({
       to: `${deliveryman.name} <${deliveryman.email}>`,
       subject: 'Encomenda cancelada - FastFeet',
@@ -24,7 +30,8 @@ class CanceledDeliveryMail {
           city: recipient.city,
           cep_code: recipient.cep_code
         },
-        deliveryProblems
+        deliveryProblems,
+        cancelationDate
       }
     });
   }
