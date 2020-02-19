@@ -60,7 +60,7 @@ yarn dev
 | MÉTODO        | ROTA                                     | BODY       | FUNÇÃO                                             |
 | ------------- | ---------------------------------------- | ---------- | -------------------------------------------------- |
 | POST          | /sessions                                | JSON       | Cria um token JWT                                  |
-| <span></span> | <br/>                                    | <i></i>    | <i></i>                                            |
+| <span></span> |                                          | <i></i>    | <i></i>                                            |
 | GET           | /deliverymen/:id                         | NO-BODY    | Mostra informações de um entregador                |
 | PUT           | /deliverymen/:id                         | JSON       | Atualiza informações de um entregador              |
 | DELETE        | /deliverymen/:id                         | NO-BODY    | Deleta um entregador                               |
