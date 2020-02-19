@@ -60,20 +60,20 @@ yarn dev
 | MÉTODO        | ROTA                                     | BODY       | FUNÇÃO                                             |
 | ------------- | ---------------------------------------- | ---------- | -------------------------------------------------- |
 | POST          | /sessions                                | JSON       | Cria um token JWT                                  |
-| <i></i>       | <i></i>                                  | <i></i>    | <i></i>                                            |
+| <br />        |                                          |            |                                                    |
 | GET           | /deliverymen/:id                         | NO-BODY    | Mostra informações de um entregador                |
 | PUT           | /deliverymen/:id                         | JSON       | Atualiza informações de um entregador              |
 | DELETE        | /deliverymen/:id                         | NO-BODY    | Deleta um entregador                               |
 | GET           | /deliverymen/:id/deliveries              | NO-BODY    | Mostra as deliveries disponíveis para um entregador|
 | GET           | /deliverymen                             | NO-BODY    | Mostra informações de todos entregadores           |
 | POST          | /deliverymen                             | JSON       | Cadastra um entregador                             |
-| <i></i>       | <i></i>                                  | <i></i>    | <i></i>                                            |
+| <br />        |                                          |            |                                                    |
 | GET           | /recipients/:id                          | NO-BODY    | Mostra informações de um destinatário              |
 | PUT           | /recipients/:id                          | JSON       | Atualiza informações de um destinatário            |
 | DELETE        | /recipients/:id                          | NO-BODY    | Deleta um destinatário                             |
 | GET           | /recipients                              | NO-BODY    | Mostra informações de todos destinatários          |
 | POST          | /recipients                              | JSON       | Cadastra um destinatário                           |
-| <i></i>       | <i></i>                                  | <i></i>    | <i></i>                                            |
+| <br />        |                                          |            |                                                    |
 | GET           | /deliveries/:id                          | NO-BODY    | Mostra informações de uma entrega                  |
 | PUT           | /deliveries/:id                          | JSON       | Atualiza informações de uma entrega                |
 | DELETE        | /deliveries/:id                          | NO-BODY    | Delete uma entrega                                 |
@@ -81,14 +81,14 @@ yarn dev
 | POST          | /deliveries                              | JSON       | Cadastra uma entrega                               |
 | PUT           | /deliveries/start-delivery/:id           | JSON       | Faz a retirada de uma entrega                      |
 | PUT           | /deliveries/finish-delivery/:id          | JSON       | Finaliza uma entrega                               |
-| <i></i>       | <i></i>                                  | <i></i>    | <i></i>                                            |
+| <br />        |                                          |            |                                                    |
 | GET           | /deliveries/problems/:id                 | NO-BODY    | Mostra informações de um problema da entrega       |
 | PUT           | /deliveries/problems/:id                 | JSON       | Atualiza informações de um problema da entrega     |
 | DELETE        | /deliveries/problems/:id                 | NO-BODY    | Deleta um problema de uma entrega                  |
 | GET           | /deliveries/problems/                    | NO-BODY    | Mostra todas os problemas de uma entrega           |
 | POST          | /deliveries/problems/                    | JSON       | Cadastra um problema na entrega                    |
 | POST          | /deliveries/problems/:id/cancel-delivery | NO-BODY    | Cancela uma entrega                                |
-| <i></i>       | <i></i>                                  | <i></i>    | <i></i>                                            |
+| <br />        |                                          |            |                                                    |
 | POST          | /files                                   | MULTI-PART | Faz upload de um arquivo                           |
 
 ## ⛏️ Feito com <a name = "built_using"></a>
