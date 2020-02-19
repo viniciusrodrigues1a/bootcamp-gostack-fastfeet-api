@@ -1,3 +1,6 @@
+import { format } from 'date-fns';
+import pt from 'date-fns/locale/pt';
+
 import Deliveryman from '../models/Deliveryman';
 import DeliveryProblem from '../models/DeliveryProblem';
 import Delivery from '../models/Delivery';
@@ -19,7 +22,8 @@ class CancelDeliveryController {
         'signature_id',
         'product',
         'start_date',
-        'end_date'
+        'end_date',
+        'canceled_at'
       ],
       include: [
         {
@@ -59,9 +63,9 @@ class CancelDeliveryController {
       return res.status(400).json({ error: 'Delivery already canceled' });
     }
 
-    // await delivery.update({
-    //   canceled_at: new Date()
-    // });
+    await delivery.update({
+      canceled_at: new Date()
+    });
 
     const { product, recipient, deliveryman } = delivery;
     const deliveryProblems = await DeliveryProblem.findAll({
@@ -84,11 +88,18 @@ class CancelDeliveryController {
       ]
     });
 
+    const formattedDate = format(
+      delivery.canceled_at,
+      "dd 'de' MMMM', às' H:mm'h'",
+      { locale: pt }
+    );
+
     await Queue.add(CanceledDeliveryMail.key, {
       product,
       recipient,
       deliveryman,
-      deliveryProblems
+      deliveryProblems,
+      cancelationDate: formattedDate
     });
 
     return res.json({
