@@ -70,7 +70,7 @@ class DeliverymanController {
 
   async update(req, res) {
     const schema = Yup.object().shape({
-      name: Yup.string().required(),
+      name: Yup.string(),
       oldEmail: Yup.string().email(),
       email: Yup.string()
         .email()
