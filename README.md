@@ -95,6 +95,7 @@ yarn dev
 ## ⛏️ Feito com <a name = "built_using"></a>
 
 - [PostgresSQL](https://www.postgresql.org/) - Database
+- [Redis](https://redis.io/) - Database
 - [Sequelize](https://sequelize.org/) - ORM
 - [Express](https://expressjs.com/) - Server Framework
 - [NodeJS](https://nodejs.org/en/) - Server Environment
