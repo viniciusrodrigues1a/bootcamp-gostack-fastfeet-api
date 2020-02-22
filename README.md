@@ -4,15 +4,16 @@
 
 <h3 align="center">FastFeet</h3>
 
-<p align="center"> Projeto desenvolvido no bootcamp GoStack da <a href="https://github.com/RocketSeat">Rocketseat</a>
-    <br> 
+<p align="center"> Desafio do terceiro módulo do <a href="https://rocketseat.com.br/bootcamp">Bootcamp GoStack</a> <br> 
 </p>
 
 ## 📝 Índice
 
 - [Sobre](#about)
 - [Primeiros passos](#getting_started)
+- [Rotas](#routes)
 - [Feito com](#built_using)
+- [Licença](#license)
 
 ## 🧐 Sobre <a name = "about"></a>
 
@@ -55,7 +56,7 @@ Rodando a aplicação:
 yarn dev
 ```
 
-### :truck: Routes
+## :truck: Rotas <a name = "routes"></a>
 
 | MÉTODO        | ROTA                                     | BODY       | FUNÇÃO                                             |
 | ------------- | ---------------------------------------- | ---------- | -------------------------------------------------- |
@@ -101,3 +102,7 @@ yarn dev
 - [Nodemailer](https://nodemailer.com/about/)
 - [Bee-queue](https://github.com/bee-queue/bee-queue)
 - [Multer](https://github.com/expressjs/multer)
+
+## :memo: Licença <a name = "license"></a>
+
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
