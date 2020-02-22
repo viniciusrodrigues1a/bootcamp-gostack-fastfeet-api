@@ -99,10 +99,10 @@ yarn dev
 - [Sequelize](https://sequelize.org/) - ORM
 - [Express](https://expressjs.com/) - Server Framework
 - [NodeJS](https://nodejs.org/en/) - Server Environment
-- [JsonWebToken](https://www.npmjs.com/package/jsonwebtoken)
-- [Nodemailer](https://nodemailer.com/about/)
-- [Bee-queue](https://github.com/bee-queue/bee-queue)
-- [Multer](https://github.com/expressjs/multer)
+- [JsonWebToken](https://www.npmjs.com/package/jsonwebtoken) - Handling JWT auth
+- [Nodemailer](https://nodemailer.com/about/) - Email sending
+- [Bee-queue](https://github.com/bee-queue/bee-queue) - Job queue
+- [Multer](https://github.com/expressjs/multer) - Handling multipart/form-data
 
 ## :memo: Licença <a name = "license"></a>
 
