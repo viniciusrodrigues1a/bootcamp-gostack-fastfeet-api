@@ -1,3 +1,4 @@
+import { Op } from 'sequelize';
 import * as Yup from 'yup';
 import Recipient from '../models/Recipient';
 
@@ -16,7 +17,17 @@ const sequelizeModelOptions = {
 
 class RecipientController {
   async index(req, res) {
-    const recipients = await Recipient.findAll(sequelizeModelOptions);
+    const { search } = req.query;
+
+    let recipients;
+
+    if (search) {
+      recipients = await Recipient.findAll({
+        where: { name: { [Op.iRegexp]: search } }
+      });
+    } else {
+      recipients = await Recipient.findAll(sequelizeModelOptions);
+    }
 
     if (recipients.length === 0) {
       return res.status(400).json({ error: 'There are no recipients' });

@@ -1,3 +1,4 @@
+import { Op } from 'sequelize';
 import * as Yup from 'yup';
 import Deliveryman from '../models/Deliveryman';
 import File from '../models/File';
@@ -15,7 +16,17 @@ const sequelizeModelOptions = {
 
 class DeliverymanController {
   async index(req, res) {
-    const deliverymen = await Deliveryman.findAll(sequelizeModelOptions);
+    const { search } = req.query;
+
+    let deliverymen;
+
+    if (search) {
+      deliverymen = await Deliveryman.findAll({
+        where: { name: { [Op.iRegexp]: search } }
+      });
+    } else {
+      deliverymen = await Deliveryman.findAll(sequelizeModelOptions);
+    }
 
     if (deliverymen.length === 0) {
       return res.status(400).json({ error: 'There are no deliverymen' });

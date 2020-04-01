@@ -1,3 +1,4 @@
+import { Op } from 'sequelize';
 import * as Yup from 'yup';
 import Deliveryman from '../models/Deliveryman';
 import Delivery from '../models/Delivery';
@@ -49,7 +50,17 @@ const sequelizeModelOptions = {
 
 class DeliveryController {
   async index(req, res) {
-    const deliveries = await Delivery.findAll(sequelizeModelOptions);
+    const { search } = req.query;
+
+    let deliveries;
+
+    if (search) {
+      deliveries = await Delivery.findAll({
+        where: { product: { [Op.iRegexp]: search } }
+      });
+    } else {
+      deliveries = await Delivery.findAll(sequelizeModelOptions);
+    }
 
     if (deliveries.length === 0) {
       return res.status(400).json({
