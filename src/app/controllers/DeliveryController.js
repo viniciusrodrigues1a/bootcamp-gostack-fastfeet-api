@@ -56,6 +56,7 @@ class DeliveryController {
 
     if (search) {
       deliveries = await Delivery.findAll({
+        ...sequelizeModelOptions,
         where: { product: { [Op.iRegexp]: search } }
       });
     } else {

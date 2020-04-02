@@ -22,6 +22,7 @@ class DeliverymanController {
 
     if (search) {
       deliverymen = await Deliveryman.findAll({
+        ...sequelizeModelOptions,
         where: { name: { [Op.iRegexp]: search } }
       });
     } else {

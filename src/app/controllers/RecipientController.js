@@ -23,6 +23,7 @@ class RecipientController {
 
     if (search) {
       recipients = await Recipient.findAll({
+        ...sequelizeModelOptions,
         where: { name: { [Op.iRegexp]: search } }
       });
     } else {
