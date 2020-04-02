@@ -11,10 +11,7 @@ class Session {
       email: Yup.string()
         .email()
         .required(),
-      password: Yup.string().required(),
-      confirmPassword: Yup.string()
-        .required()
-        .oneOf([Yup.ref('password')])
+      password: Yup.string().required()
     });
 
     if (!(await schema.isValid(req.body))) {
