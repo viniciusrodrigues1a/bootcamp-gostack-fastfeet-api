@@ -16,7 +16,8 @@ const sequelizeModelOptions = {
     'signature_id',
     'product',
     'start_date',
-    'end_date'
+    'end_date',
+    'canceled_at'
   ],
   include: [
     {
