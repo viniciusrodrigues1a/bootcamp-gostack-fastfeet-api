@@ -21,6 +21,11 @@ const sequelizeModelOptions = {
   ],
   include: [
     {
+      model: File,
+      as: 'signature',
+      attributes: ['id', 'name', 'path', 'url_path']
+    },
+    {
       model: Recipient,
       as: 'recipient',
       attributes: [
