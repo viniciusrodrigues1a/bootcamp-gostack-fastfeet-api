@@ -83,12 +83,12 @@ yarn dev
 | PUT           | /deliveries/start-delivery/:id           | JSON       | Faz a retirada de uma entrega                      |
 | PUT           | /deliveries/finish-delivery/:id          | JSON       | Finaliza uma entrega                               |
 | <br />        |                                          |            |                                                    |
-| GET           | /deliveries/problems/:id                 | -          | Mostra informações de um problema da entrega       |
-| PUT           | /deliveries/problems/:id                 | JSON       | Atualiza informações de um problema da entrega     |
-| DELETE        | /deliveries/problems/:id                 | -          | Deleta um problema de uma entrega                  |
-| GET           | /deliveries/problems/                    | -          | Mostra todas os problemas de uma entrega           |
-| POST          | /deliveries/problems/                    | JSON       | Cadastra um problema na entrega                    |
-| POST          | /deliveries/problems/:id/cancel-delivery | -          | Cancela uma entrega                                |
+| GET           | /problems/:id                 | -          | Mostra informações de um problema da entrega       |
+| PUT           | /problems/:id                 | JSON       | Atualiza informações de um problema da entrega     |
+| DELETE        | /problems/:id                 | -          | Deleta um problema de uma entrega                  |
+| GET           | /problems/                    | -          | Mostra todas os problemas de uma entrega           |
+| POST          | /problems/                    | JSON       | Cadastra um problema na entrega                    |
+| POST          | /problems/:id/cancel-delivery | -          | Cancela uma entrega                                |
 | <br />        |                                          |            |                                                    |
 | POST          | /files                                   | MULTI-PART | Faz upload de um arquivo                           |
 
