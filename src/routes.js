@@ -49,7 +49,7 @@ routes.put('/problems/:id', DeliveryProblemController.update);
 routes.delete('/problems/:id', DeliveryProblemController.destroy);
 
 routes.delete(
-  '/deliveries/problems/:id/cancel-delivery',
+  '/problems/:id/cancel-delivery',
   CancelDeliveryController.destroy
 );
 
