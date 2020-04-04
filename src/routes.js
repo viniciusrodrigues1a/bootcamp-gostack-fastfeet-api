@@ -38,7 +38,7 @@ routes.put('/deliveries/finish-delivery/:id', FinishDeliveries.update);
 
 routes.get('/deliveries/', DeliveryController.index);
 routes.post('/deliveries/', DeliveryController.store);
-routes.get('/delivery/:id', DeliveryController.show);
+routes.get('/deliveries/:id', DeliveryController.show);
 routes.put('/deliveries/:id', DeliveryController.update);
 routes.delete('/deliveries/:id', DeliveryController.destroy);
 
