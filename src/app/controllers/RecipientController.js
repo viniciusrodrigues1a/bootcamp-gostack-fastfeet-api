@@ -17,7 +17,9 @@ const sequelizeModelOptions = {
 
 class RecipientController {
   async index(req, res) {
-    const { search } = req.query;
+    const { search, page = 1 } = req.query;
+
+    const total = await Recipient.count();
 
     let recipients;
 
@@ -27,10 +29,14 @@ class RecipientController {
         where: { name: { [Op.iRegexp]: search } }
       });
     } else {
-      recipients = await Recipient.findAll(sequelizeModelOptions);
+      recipients = await Recipient.findAll({
+        ...sequelizeModelOptions,
+        limit: 5,
+        offset: (page - 1) * 5
+      });
     }
 
-    return res.json(recipients);
+    return res.json({ payload: recipients, total });
   }
 
   async show(req, res) {

@@ -56,7 +56,9 @@ const sequelizeModelOptions = {
 
 class DeliveryController {
   async index(req, res) {
-    const { search } = req.query;
+    const { search, page = 1 } = req.query;
+
+    const total = await Delivery.count();
 
     let deliveries;
 
@@ -66,10 +68,14 @@ class DeliveryController {
         where: { product: { [Op.iRegexp]: search } }
       });
     } else {
-      deliveries = await Delivery.findAll(sequelizeModelOptions);
+      deliveries = await Delivery.findAll({
+        ...sequelizeModelOptions,
+        limit: 10,
+        offset: (page - 1) * 10
+      });
     }
 
-    return res.json(deliveries);
+    return res.json({ payload: deliveries, total });
   }
 
   async show(req, res) {

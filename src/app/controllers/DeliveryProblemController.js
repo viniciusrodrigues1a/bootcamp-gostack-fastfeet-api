@@ -23,11 +23,17 @@ const sequelizeModelOptions = {
 
 class DeliveryProblemController {
   async index(req, res) {
-    const deliveryProblems = await DeliveryProblem.findAll(
-      sequelizeModelOptions
-    );
+    const { page = 1 } = req.query;
 
-    return res.json(deliveryProblems);
+    const total = await DeliveryProblem.count();
+
+    const deliveryProblems = await DeliveryProblem.findAll({
+      ...sequelizeModelOptions,
+      limit: 5,
+      offset: (page - 1) * 5
+    });
+
+    return res.json({ payload: deliveryProblems, total });
   }
 
   async show(req, res) {
