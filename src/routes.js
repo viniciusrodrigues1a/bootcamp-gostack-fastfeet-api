@@ -42,11 +42,11 @@ routes.get('/deliveries/:id', DeliveryController.show);
 routes.put('/deliveries/:id', DeliveryController.update);
 routes.delete('/deliveries/:id', DeliveryController.destroy);
 
-routes.get('/deliveries/problems', DeliveryProblemController.index);
-routes.post('/deliveries/problems', DeliveryProblemController.store);
-routes.get('/deliveries/problems/:id', DeliveryProblemController.show);
-routes.put('/deliveries/problems/:id', DeliveryProblemController.update);
-routes.delete('/deliveries/problems/:id', DeliveryProblemController.destroy);
+routes.get('/problems', DeliveryProblemController.index);
+routes.post('/problems', DeliveryProblemController.store);
+routes.get('/problems/:id', DeliveryProblemController.show);
+routes.put('/problems/:id', DeliveryProblemController.update);
+routes.delete('/problems/:id', DeliveryProblemController.destroy);
 
 routes.delete(
   '/deliveries/problems/:id/cancel-delivery',
