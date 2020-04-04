@@ -30,10 +30,6 @@ class RecipientController {
       recipients = await Recipient.findAll(sequelizeModelOptions);
     }
 
-    if (recipients.length === 0) {
-      return res.status(400).json({ error: 'There are no recipients' });
-    }
-
     return res.json(recipients);
   }
 

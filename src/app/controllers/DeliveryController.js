@@ -69,12 +69,6 @@ class DeliveryController {
       deliveries = await Delivery.findAll(sequelizeModelOptions);
     }
 
-    if (deliveries.length === 0) {
-      return res.status(400).json({
-        error: 'There are no deliveries'
-      });
-    }
-
     return res.json(deliveries);
   }
 

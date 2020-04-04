@@ -29,10 +29,6 @@ class DeliverymanController {
       deliverymen = await Deliveryman.findAll(sequelizeModelOptions);
     }
 
-    if (deliverymen.length === 0) {
-      return res.status(400).json({ error: 'There are no deliverymen' });
-    }
-
     return res.json(deliverymen);
   }
 
