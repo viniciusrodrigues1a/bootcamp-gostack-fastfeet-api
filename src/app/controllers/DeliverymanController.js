@@ -79,12 +79,8 @@ class DeliverymanController {
   async update(req, res) {
     const schema = Yup.object().shape({
       name: Yup.string(),
-      oldEmail: Yup.string().email(),
-      email: Yup.string()
-        .email()
-        .when('oldEmail', (oldEmail, field) =>
-          oldEmail ? field.required() : field
-        )
+      email: Yup.string().email(),
+      avatar_id: Yup.number().positive()
     });
 
     if (!(await schema.isValid(req.body))) {
@@ -101,7 +97,11 @@ class DeliverymanController {
 
     const { email } = req.body;
 
-    if (email && (await Deliveryman.findOne({ where: { email } }))) {
+    if (
+      email &&
+      deliveryman.email !== email &&
+      (await Deliveryman.findOne({ where: { email } }))
+    ) {
       return res.status(400).json({ error: 'Email already registered' });
     }
 
