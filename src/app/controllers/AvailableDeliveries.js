@@ -16,7 +16,8 @@ class AvailableDeliveryController {
         'signature_id',
         'product',
         'start_date',
-        'end_date'
+        'end_date',
+        'created_at'
       ],
       include: [
         {

@@ -4,7 +4,7 @@ import Deliveryman from '../models/Deliveryman';
 import File from '../models/File';
 
 const sequelizeModelOptions = {
-  attributes: ['id', 'name', 'email'],
+  attributes: ['id', 'name', 'email', 'created_at'],
   include: [
     {
       model: File,
