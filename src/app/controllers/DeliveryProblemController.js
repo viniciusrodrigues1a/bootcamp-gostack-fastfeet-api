@@ -3,7 +3,7 @@ import DeliveryProblem from '../models/DeliveryProblem';
 import Delivery from '../models/Delivery';
 
 const sequelizeModelOptions = {
-  attributes: ['id', 'description'],
+  attributes: ['id', 'description', 'created_at'],
   include: [
     {
       model: Delivery,
