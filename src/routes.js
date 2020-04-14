@@ -29,6 +29,10 @@ routes.get('/deliverymen/:id/deliveries', AvailableDeliveries.index);
 routes.get('/problems', DeliveryProblemController.index);
 routes.post('/problems', DeliveryProblemController.store);
 
+routes.post('/files', upload.single('file'), FileController.store);
+
+routes.put('/deliveries/finish-delivery/:id', FinishDeliveries.update);
+
 routes.use(authMiddleware);
 
 routes.get('/deliverymen', DeliverymanController.index);
@@ -37,7 +41,6 @@ routes.put('/deliverymen/:id', DeliverymanController.update);
 routes.delete('/deliverymen/:id', DeliverymanController.destroy);
 
 routes.put('/deliveries/start-delivery/:id', WithdrawDeliveries.update);
-routes.put('/deliveries/finish-delivery/:id', FinishDeliveries.update);
 
 routes.get('/deliveries/', DeliveryController.index);
 routes.post('/deliveries/', DeliveryController.store);
@@ -53,8 +56,6 @@ routes.delete(
   '/problems/:id/cancel-delivery',
   CancelDeliveryController.destroy
 );
-
-routes.post('/files', upload.single('file'), FileController.store);
 
 routes.post('/recipients', RecipientController.store);
 routes.put('/recipients/:id', RecipientController.update);
